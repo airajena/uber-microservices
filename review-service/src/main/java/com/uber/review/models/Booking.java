@@ -2,6 +2,8 @@ package com.uber.review.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.sql.Driver;
 import java.util.Date;
 @Entity
 @Getter
@@ -19,4 +21,9 @@ public class Booking extends BaseModel{
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date endTime;
     private Long totalDistance;
+
+    @ManyToOne
+    private Driver driver;
+    @ManyToOne
+    private Passenger passenger;
 }
