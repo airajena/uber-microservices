@@ -5,6 +5,7 @@ import com.uber.review.models.Review;
 import com.uber.review.repositories.BookingRepository;
 import com.uber.review.repositories.DriverRepository;
 import com.uber.review.repositories.ReviewRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +29,7 @@ public class ReviewService implements CommandLineRunner {
     }
 
     @Override
+    @Transactional
     public void run(String... args) throws Exception {
         System.out.println("*************");
 
