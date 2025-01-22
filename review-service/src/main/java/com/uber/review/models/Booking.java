@@ -2,9 +2,9 @@ package com.uber.review.models;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.sql.Driver;
+import com.uber.review.models.Driver;
 import java.util.Date;
+
 @Entity
 @Getter
 @Setter
@@ -24,6 +24,7 @@ public class Booking extends BaseModel{
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Driver driver;
+
     @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger;
 }

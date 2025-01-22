@@ -13,6 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 public class Passenger extends BaseModel {
     private String name;
+
     @OneToMany(mappedBy = "passenger")
+    @Builder.Default
     private List<Booking> bookings = new ArrayList<>();
 }
+
