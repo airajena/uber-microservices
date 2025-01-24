@@ -1,9 +1,11 @@
 package com.uber.review.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
-import com.uber.review.models.Driver;
+
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -12,14 +14,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Booking extends BaseModel{
-    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
-    private Review review;
+
     @Enumerated(value = EnumType.STRING)
     private BookingStatus bookingStatus;
+
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date startTime;
+
     @Temporal(value = TemporalType.TIMESTAMP)
     private Date endTime;
+
     private Long totalDistance;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -27,4 +31,5 @@ public class Booking extends BaseModel{
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Passenger passenger;
+
 }
